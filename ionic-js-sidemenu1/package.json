@@ -16,7 +16,7 @@
   },
   "scripts": {
     "build": "node_modules/.bin/gulp",
-    "bower": "node_modules/.bin/bower install",    
+    "bower": "node_modules/.bin/bower install",
     "postinstall": "npm run bower && npm run build"
   },
   "cordovaPlugins": [
@@ -27,5 +27,10 @@
     "cordova-plugin-statusbar",
     "ionic-plugin-keyboard"
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [
+    {
+      "platform": "android",
+      "locator": "windows"
+    }
+  ]
 }

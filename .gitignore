@@ -4,3 +4,8 @@ ionic-js-sidemenu1/bld/
 ionic-js-sidemenu1/bin/
 ionic-js-sidemenu1/plugins/
 ionic-js-sidemenu1/node_modules/
+ionic-js-sidemenu1/resources/android/icon/
+ionic-js-sidemenu1/resources/ios/icon/
+ionic-js-sidemenu1/resources/android/splash/
+ionic-js-sidemenu1/resources/ios/splash/
+.idea/
