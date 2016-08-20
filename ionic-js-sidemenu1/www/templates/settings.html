@@ -1,0 +1,139 @@
+<ion-view hide-nav-bar="hideNavigationMenu" view-title="Settings">
+    <ion-content>
+
+        <div class="list card">
+            <a href="" ng-show="!user" ng-click="loginFromSettings()" class="item ">
+              Account
+              <p>Tap to sign in</p>
+            </a>
+
+            <a id="userName" href="" ng-show="user" ng-click="logout()" class="item ">
+                <i class="icon ion-person"></i>
+                &nbsp
+                Signed in as {{user.displayName}}
+              <p>Tap to sign out</p>
+            </a>
+    		
+        </div>
+
+        <div class="card sign-in" >
+            <ion-toggle ng-model="state.trackLocation"
+                        ng-change="trackLocationChange()">
+                <i class="icon ion-map"></i>
+                &nbsp
+                Track my location
+            </ion-toggle>
+<!--            <div ng-show="state.trackLocation" class="list card">
+                <a ng-show="user" ng-click="goToState('app.map')" class="item ">
+                    Open Map
+                </a>
+            </div>-->
+        </div>
+
+        <div class="card" >
+            <div class="item item-divider">
+                <i class="icon ion-android-notifications-none"></i>
+                &nbsp
+                Device Notifications
+            </div>
+<!--            <ion-toggle ng-model="state.showOnlyOneNotification"
+                        ng-change="combineNotificationChange()">
+                Disable Multiple
+            </ion-toggle>-->
+            <label class="item item-input">
+                <div class="input-label" >
+                    Earliest Notification Time
+                </div>
+                <button class="button button-block up-top"
+                        style="text-align:left;font-size:14px;border:none;color:black;background-color: white;margin-bottom: 0px;margin-top: 0px;padding-left: 0px;"
+                        ng-click="openEarliestReminderTimePicker()">
+                    {{user.earliestReminderTime | fromTwentyFourToTwelveHourFormat}}
+                </button>
+            </label>
+            <label class="item item-input">
+                <div class="input-label" >
+                    Latest Notification Time
+                </div>
+                <button class="button button-block up-top"
+                        style="text-align:left;font-size:14px;border:none;color:black;background-color: white;margin-bottom: 0px;margin-top: 0px;padding-left: 0px;"
+                        ng-click="openLatestReminderTimePicker()">
+                    {{user.latestReminderTime | fromTwentyFourToTwelveHourFormat}}
+                </button>
+            </label>
+            <!--
+            <div ng-click="ratingPopover.show();" ng-show="state.showOnlyOneNotification" class="list card">
+                <div class="item item-text-wrap">
+                    <p>Remind me every</p>
+                </div>
+
+                <a href="" ng-click="ratingPopover.show();" class="item ">
+                    &lt;!&ndash;{{primaryOutcomeRatingFrequencyDescription}}&ndash;&gt;
+                    <p ng-show="primaryOutcomeRatingFrequencyDescription=='never'">never</p>
+                    &lt;!&ndash;FOR DEVELOPMENT ONLY &#45;&#45;&ndash;&gt;
+                      <p ng-show="primaryOutcomeRatingFrequencyDescription=='minutely'">minute</p>
+                      <p ng-show="primaryOutcomeRatingFrequencyDescription=='every five minutes'">five minutes</p>
+                    <p ng-show="primaryOutcomeRatingFrequencyDescription=='hourly'">hour</p>
+                    <p ng-show="primaryOutcomeRatingFrequencyDescription=='every three hours'">three hours</p>
+                    <p ng-show="primaryOutcomeRatingFrequencyDescription=='twice a day'">12 hours</p>
+                    <p ng-show="primaryOutcomeRatingFrequencyDescription=='daily'">day</p>
+
+                    <p ng-show="primaryOutcomeRatingFrequencyDescription=='day'">day</p>
+                    <p ng-show="primaryOutcomeRatingFrequencyDescription=='hour'">hour</p>
+                </a>
+
+                &lt;!&ndash;   		<a href="" ng-click="additionalRatingPopover.show();" class="item ">
+                             Additional required ratings
+                             <p>{{addString}}</p>
+                           </a>&ndash;&gt;
+            </div>-->
+
+        </div>
+
+        <div class="list card">
+            <a ng-click="sendSharingInvitation()" class="item ">
+                <i class="icon ion-email"></i>
+                &nbsp
+                Share Your Data
+                <p style="white-space: normal">Invite a physician, caregiver, or loved one</p>
+            </a>
+        </div>
+
+        <div class="list card">
+            <div class="item item-divider">
+                <i class="icon ion-ios-download"></i>
+                &nbsp
+                Export Your Data
+            </div>
+            <a href="" ng-click="exportPdf()" class="item ">
+              Export as PDF File
+            </a>
+            <a href="" ng-click="exportXls()" class="item ">
+                Export as XLS File
+            </a>
+            <a href="" ng-click="exportCsv()" class="item ">
+                Export as CSV File
+            </a>
+        </div>
+
+        <div class="list card">
+            <a ng-click="contactUs()" class="item ">
+                <i class="icon ion-help-buoy"></i>
+                Help & Feedback
+            </a>
+        </div>
+
+        <div ng-if="!user" class="card sign-in" >
+            <div class="item item-text-wrap">
+                <button class="button button-block icon-left ion-trash-a button-assertive" ng-click="logout()">
+                    Clear all user data
+                </button>
+            </div>
+        </div>
+
+        <div class="list card">
+            <a class="item ">
+                {{appName}} Version {{appVersion}}
+            </a>
+        </div>
+    </ion-content>
+</ion-view>
