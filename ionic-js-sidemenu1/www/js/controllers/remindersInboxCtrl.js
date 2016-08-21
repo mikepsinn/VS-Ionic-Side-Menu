@@ -7,7 +7,7 @@ angular.module('starter')
 	    $scope.controller_name = "RemindersInboxCtrl";
 
 		console.log('Loading ' + $scope.controller_name);
-		
+
 	    $scope.state = {
 	    	showMeasurementBox : false,
 	    	selectedReminder : false,
@@ -227,7 +227,7 @@ angular.module('starter')
 				userService.refreshUser();
 			}
 
-			if (typeof cordova !== "undefined") {
+			if (typeof cordova !== "undefined" && typeof cordova.plugins.notification !== "undefined") {
 				$ionicPlatform.ready(function () {
 					cordova.plugins.notification.local.clearAll(function () {
 						console.debug("clearAll active notifications");
@@ -298,7 +298,7 @@ angular.module('starter')
 					fromState : $state.current.name
 				});
 	    };
-		
+
 		$scope.goToReminderSearchCategory = function(variableCategoryName) {
 			$state.go('app.reminderSearchCategory',
 				{
